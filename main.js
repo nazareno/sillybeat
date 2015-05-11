@@ -136,6 +136,10 @@ var eightNote = speed / 8;
 var sixteenthNote = speed / 16;
 delay.delay.delayTime.value = eightNote;
 
+generateOffset  = function(duration){
+    return (0.3 + Math.random() / 3) * duration;
+}
+
 //play function starts the loop
 function play(){
 	//the loop function run every bar
@@ -149,26 +153,22 @@ function play(){
 			
 			//kick
 			if(kick.loaded && kickPattern[i]){
-
-				kick.start(next + (sixteenthNote * i), 1000);
+				kick.start(next + (sixteenthNote * i), generateOffset(kick.buffer.duration));
 				kick.stop(next + (sixteenthNote * i) + (sixteenthNote));
-
 			}
 			//snare
 			if(snare.loaded){
-
-				snare.start(next + (quarterNote * 2), 1000);
+				snare.start(next + (quarterNote * 2), generateOffset(snare.buffer.duration));
 				snare.stop(next + (quarterNote * 2) + sixteenthNote);
 			}
 			//hihat
 			if(hat.loaded && hatPattern[i]){
-
-				hat.start(next + (sixteenthNote * i), 1000);
+				hat.start(next + (sixteenthNote * i), generateOffset(hat.buffer.duration));
 				hat.stop(next + (sixteenthNote * i) + sixteenthNote);
 			}
 			//perc
 			if(perc.loaded){
-				perc.start(next + (quarterNote * 3), 1000);
+				perc.start(next + (quarterNote * 3), generateOffset(perc.buffer.duration));
 				perc.stop(next + (quarterNote * 3.5));
 			}
 			//sample
