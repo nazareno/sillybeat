@@ -12,7 +12,11 @@ function Sound(context,cors,searchparameters,output,callbackfunction){
 	this.playbackRate = Math.random() + 0.3;
 	//get sounds from soundcloud
 	SC.get('/tracks',searchparameters,function(tracks){
-		
+
+        if(tracks.length == 0){
+            console.log("Not track found.")
+        }
+
 		var random = Math.floor(Math.random() * tracks.length); //choose a random one
 		//make the url and prepare it for proxying
 		var url = tracks[random].stream_url + '?client_id=e553081039dc6507a7c3ebf6211e4590';

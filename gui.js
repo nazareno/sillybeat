@@ -162,8 +162,9 @@ function guiinit(global, spinners, startcallback, stopcallback, soundrefreshcall
 
 	function getPics(){
 
+        // TODO tamanho do gif
 		$.ajax({
-	        url: 'http://api.tumblr.com/v2/tagged?tag=glitch+gif&api_key=cIBh1bpFkHI2pyWmGDV3YPOlErsRgNCtsJ715Pl09uMKEY2kOK&limit=50',
+	        url: 'http://api.tumblr.com/v2/tagged?tag=dance+gif&api_key=cIBh1bpFkHI2pyWmGDV3YPOlErsRgNCtsJ715Pl09uMKEY2kOK&limit=50',
 	        success: setBackGround,
 	        dataType: 'jsonp'
    		 });

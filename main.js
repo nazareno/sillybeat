@@ -123,7 +123,7 @@ var spinners = {
 
 
 //choose a random tempo
-var speed = (Math.random() * 3.5) + 1;
+var speed = (Math.random() * 3.5) + 1; // TODO qual a unidade aqui?
 var quarterNote = speed / 4;
 var eightNote = speed / 8;
 var sixteenthNote = speed / 16;
@@ -137,6 +137,8 @@ function play(){
 		//here i play the sounds 
 
 		for(var i = 0; i < 16; i++){
+
+            // TODO mexer nas duracoes
 			
 			//kick
 			if(kick.loaded && kickPattern[i]){
@@ -187,11 +189,16 @@ function stop(){
 //generate search params - query,tags,durationfrom,durationto
 function generateParams(){
 	
-	kickParams = generateParameters("kick drum","",300, 40000);
-	snareParams = generateParameters("snare","",100,30000);
-	hatParams = generateParameters("hihat","",100,30000);
-	sampleParams = generateParameters("","",5000,500000);
-	percParams = generateParameters("percussion sample","",0,30000);
+	kickParams = generateParameters("","49552754",300, 600000);
+	snareParams = generateParameters("","49552754",100,600000);
+	hatParams = generateParameters("","49552754",100,600000);
+	sampleParams = generateParameters("","49552754",5000,600000);
+	percParams = generateParameters("","49552754",0,600000);
+//  kickParams = generateParameters("kick drum","",300, 40000);
+//	snareParams = generateParameters("snare","",100,30000);
+//	hatParams = generateParameters("hihat","",100,30000);
+//	sampleParams = generateParameters("","",5000,500000);
+//	percParams = generateParameters("percussion sample","",0,30000);
 
 }
 
