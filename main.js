@@ -47,12 +47,19 @@ var percGain = context.createGain();
 var sampGain = context.createGain();
 
 //volumes
+//kickGain.gain.value = 1;
+//reverbGain.gain.value = 0.5;
+//hatGain.gain.value = 0.4;
+//snareGain.gain.value = 0.15;
+//percGain.gain.value = 0.4;
+//sampGain.gain.value = 1;
+//delay.output.gain.value = 0.5;
 kickGain.gain.value = 1;
 reverbGain.gain.value = 0.5;
-hatGain.gain.value = 0.4;
-snareGain.gain.value = 0.15;
+hatGain.gain.value = 0.25;
+snareGain.gain.value = 0.4;
 percGain.gain.value = 0.4;
-sampGain.gain.value = 1;
+sampGain.gain.value = 0.6;
 delay.output.gain.value = 0.5;
 
 //connections
@@ -143,33 +150,32 @@ function play(){
 			//kick
 			if(kick.loaded && kickPattern[i]){
 
-				kick.start(next + (sixteenthNote * i));
+				kick.start(next + (sixteenthNote * i), 1000);
 				kick.stop(next + (sixteenthNote * i) + (sixteenthNote));
 
 			}
 			//snare
 			if(snare.loaded){
 
-				snare.start(next + (quarterNote * 2));
+				snare.start(next + (quarterNote * 2), 1000);
 				snare.stop(next + (quarterNote * 2) + sixteenthNote);
 			}
 			//hihat
 			if(hat.loaded && hatPattern[i]){
 
-				hat.start(next + (sixteenthNote * i));
+				hat.start(next + (sixteenthNote * i), 1000);
 				hat.stop(next + (sixteenthNote * i) + sixteenthNote);
 			}
 			//perc
 			if(perc.loaded){
-				perc.start(next + (quarterNote * 3));
+				perc.start(next + (quarterNote * 3), 1000);
 				perc.stop(next + (quarterNote * 3.5));
 			}
 			//sample
 			if(sample.loaded && samplePattern[i]){
-
 				var offset = sampleOffsetPattern[i] * (sample.buffer.duration);
 				sample.start(next + (sixteenthNote * i),offset);
-				sample.stop(next + (sixteenthNote * i) + (sixteenthNote));
+				sample.stop(next + (sixteenthNote * i) + (eightNote));
 			}
 
 		}

@@ -13,7 +13,7 @@ var generatePattern = function(probability){
 
 var generateOffsetPattern = function(){
 	var array = [];
-	for(var i =0; i < 16; i++){
+	for(var i =0; i < 8; i++){
 		array[i] = Math.random();
 	}
 	return array;
