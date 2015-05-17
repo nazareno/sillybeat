@@ -110,25 +110,25 @@ function guiinit(global, spinners, startcallback, stopcallback, soundrefreshcall
 			var id2 = $(this).attr('id');
 			switch(id2){
 				case 'kickvol':
-					nodes.kick.gain.value = 1;
+					nodes.kick.gain.value = DEFAULT_KICK_GAIN;
 
 				break;
 
 				case'snarevol':
-					nodes.snare.gain.value = 0.8;
+					nodes.snare.gain.value = DEFAULT_SNARE_GAIN;
 				break;
 
 				case 'hatvol':
-					nodes.hat.gain.value = 0.4;
+					nodes.hat.gain.value = DEFAULT_HAT_GAIN;
 				break;
 
 				case'percvol':
-					nodes.perc.gain.value = 0.8;
+					nodes.perc.gain.value = DEFAULT_PERC_GAIN;
 
 				break;
 
 				case'sampvol':
-					nodes.samp.gain.value = 1.2;
+					nodes.samp.gain.value = DEFAULT_SAMPLE_GAIN;
 				break;
 			}
 		}
@@ -140,20 +140,17 @@ function guiinit(global, spinners, startcallback, stopcallback, soundrefreshcall
 	function setBackGround(e){
 		
 		var random = Math.round(Math.floor(Math.random() * e.response.length));
-		console.log(e.response.length);
+		console.log(e.response.length + " gifs found");
 		console.log(random);
 		if(e.response[random].type === 'photo'){
 
 			$('#back').css({
-
 				background: "url('" + e.response[random].photos[0].original_size.url + "')",
-                'background-size': "200% 200%",
-                opacity: '0.65'
-
+                'background-size': "150% 150%",
+                opacity: '0.75'
 			});
 		
 		}else{
-
 			setBackGround();
 		}
 
@@ -161,10 +158,12 @@ function guiinit(global, spinners, startcallback, stopcallback, soundrefreshcall
 	
 
 	function getPics(){
-
+        var keywords = ['dance', 'lemur', 'art']
+        var keyword = keywords[Math.floor(Math.random() * keywords.length)];
         // TODO tamanho do gif
 		$.ajax({
-	        url: 'http://api.tumblr.com/v2/tagged?tag=dance+gif&api_key=cIBh1bpFkHI2pyWmGDV3YPOlErsRgNCtsJ715Pl09uMKEY2kOK&limit=50',
+	        //url: 'http://api.tumblr.com/v2/tagged?tag=dance+gif&api_key=cIBh1bpFkHI2pyWmGDV3YPOlErsRgNCtsJ715Pl09uMKEY2kOK&limit=50',
+            url: 'http://api.tumblr.com/v2/tagged?tag=' + keyword + '+gif&api_key=cIBh1bpFkHI2pyWmGDV3YPOlErsRgNCtsJ715Pl09uMKEY2kOK&limit=75',
 	        success: setBackGround,
 	        dataType: 'jsonp'
    		 });

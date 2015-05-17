@@ -8,6 +8,8 @@ function Sound(context,cors,searchparameters,output,callbackfunction){
 	this.destination = output;
 	this.url = null;
 	this.permalink = null;
+    this.songName = null;
+    this.username = null;
 	this.request = null;
 	this.playbackRate = Math.random() + 0.3;
 	//get sounds from soundcloud
@@ -21,6 +23,8 @@ function Sound(context,cors,searchparameters,output,callbackfunction){
 		//make the url and prepare it for proxying
 		var url = tracks[random].stream_url + '?client_id=e553081039dc6507a7c3ebf6211e4590';
 		that.permalink = tracks[random].permalink_url;
+        that.songName = tracks[random].title;
+        that.username = tracks[random].user.username
 		that.url = cors +  url;
 		
 		//load the buffer - decode it and return buffer
