@@ -153,7 +153,7 @@ function play() {
     var bar = 0;
     //the loop function run every bar
     l = new loop(function (next) {
-        
+
         for (var i = 0; i < 16; i++) {
             // TODO mexer nas duracoes
             //kick

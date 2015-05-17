@@ -88,6 +88,13 @@ h2{
 	color: white;
 }
 
+.butt-med{
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+
 .butt:hover{
 	color: grey;
 }
