@@ -8,7 +8,6 @@ var generateKickPattern = function(probability, probs){
             array[i] = true;
         }
     }
-    console.log("kick: " + array)
     return array;
 }
 

@@ -268,9 +268,11 @@ function getSounds() {
 function createPatterns() {
     //make new patterns
     kickPattern = generateKickPattern(0.45, [2.0, 0.2, 0.6, 0.5, 0.1, 0.2, 0.5, 0.4]);
+    console.log("padrão 1: " + kickPattern);
     hatPattern = generatePattern(0.8);
     samplePattern = generatePattern(0.2);
     snarePattern = generateKickPattern(0.45, [0.2, 0.2, 0.2, 0.2, 2.0, 0.2, 1.0, 0.1])
+    console.log("padrão 2: " + snareParams);
 
     sampleOffsetPattern = generateOffsetPattern();
     fixedOffsets.kick = generateOffset();

@@ -158,8 +158,12 @@ function guiinit(global, spinners, startcallback, stopcallback, soundrefreshcall
 	
 
 	function getPics(){
-        var keywords = ['dance', 'lemur', 'art']
+        //var keywords = ['dance', 'lemur', 'art', 'godzilla', 'gorilla', 'johncage', '']
+        var keywords = ['dance', 'lemur', 'art', 'godzilla', 'johncage', 'sherlock', 'glitch', 'pokemon']
         var keyword = keywords[Math.floor(Math.random() * keywords.length)];
+
+        console.log("Gif de " + keyword);
+
         // TODO tamanho do gif
 		$.ajax({
 	        //url: 'http://api.tumblr.com/v2/tagged?tag=dance+gif&api_key=cIBh1bpFkHI2pyWmGDV3YPOlErsRgNCtsJ715Pl09uMKEY2kOK&limit=50',
